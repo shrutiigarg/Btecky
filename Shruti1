@@ -1,0 +1,35 @@
+import java.util.*;
+class Main {
+
+	public static void main(String[] args) {
+		Scanner scn=new Scanner(System.in);
+		String str=scn.nextLine();
+		System.out.print(LongestSubstring(str));
+
+	}
+	public static int LongestSubstring(String s)
+	{
+		// Complete the function
+         
+        int n=s.length();
+       
+        int out=0;
+        
+        for(int i=0;i<n;i++){
+            boolean []b=new boolean[256];
+            for(int j=i;j<n;j++){
+                if(b[s.charAt(j)]==true){
+                    break;
+                }
+                else{
+                    out=Math.max(out,j-i+1);
+                    
+                    b[s.charAt(j)]=true;
+                }
+
+            }
+            
+        }
+        return out;
+	}
+}
